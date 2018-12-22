@@ -33,32 +33,30 @@
 
     #movie-list img {
         padding: 0.5vw;
-        width: 95%;
-        height: 95%;
+        max-width: 93.5%;
         border-radius: 10px;
     }
 
     .block {
         width: 15vw;
-        height: 20vw;
         margin: .75vw;
         text-align: left;
         display: inline-block;
         font-size: 1vw;
         border-radius: 5px;
         transition: .30s;
-        text-overflow: ellipsis;
     }
 
     .block-txt {
-        padding-left: .75vw; 
-        padding-bottom: .75vw; 
+        padding-left: .75vw;
+        padding-bottom: .75vw;
     }
 
     .block:hover {
         background-color: rgb(49, 49, 49);
         color: rgb(255, 174, 0);
         transition: .30s;
+        cursor: pointer;
     }
 </style>
 
@@ -76,18 +74,22 @@
                 dataType: 'json',
                 url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
                 success: function (result) {
-                    for (var i = 0; i < result.total; i++) {
+                    var i = -1;
+                    while (i++ <= result.total) {
                         $("#movie-list").append(
                             "<div class='block'>" +
-                            "<img src='" + result.data[i].image + "'><br>" +
-                            "<div class='block-txt'>" +result.data[i].name + "</div>" +
-                            "<div class='block-txt'>" +result.data[i].price +" บาท" + "</div>" +
+                            "<img src=" + result.data[i].image + "><br>" +
+                            "<div class='block-txt'>" + result.data[i].name + "<br>" +
+                            result.data[i].price + " บาท" + "</div>" +
                             "</div>"
                         );
                     }
                 }
             });
             //-------------------------------------------------------------//
+            $('#movie-list').on("click", ".block", function () {
+                console.log(5);
+            });
         });
     </script>
 </body>
