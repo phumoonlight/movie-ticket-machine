@@ -15,18 +15,17 @@
     <section>
 
     </section>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script>
         $(document).ready(function () {
             $.ajax({
-                type:'GET',
-                dataType:'json',
+                type: 'GET',
+                dataType: 'json',
                 url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
                 success: function (result) {
-
-                    $("div").html("<img src='"+result.data[1].image+"'>");
-                     $("section").html(result.data[1].name);
+                    $("div").html("<img src='" + result.data[1].image + "'>");
+                    $("section").html(result.data[1].name);
                 }
             });
         });
