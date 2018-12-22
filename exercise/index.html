@@ -5,14 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Exercise : Movie Ticket Machine</title>
+    <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
 </head>
+<style>
+    body{
+        font-family: 'Prompt', sans-serif;
+        margin-left: 7.5vw;
+        margin-right: 7.5vw;
+    }
+
+    #title{
+       border: solid rgb(225, 225, 225) 1px;
+       padding: 1.5vw; 
+       font-size: 3.5vw;
+       font-weight: bold;
+       color: rgb(255, 166, 0);
+       background: rgb(250, 250, 250);
+    }
+
+    #movie-list{
+        
+    }
+
+    #movie-list img{
+        width: 20vw;
+        height: 20vw;
+    }
+</style>
 
 <body>
-    <div>
-    </div>
-
-    <section>
+    <div id="title">ภาพยนตร์</div>
+    <div><a href=""></a></div>
+    <section id="movie-list">
 
     </section>
 
@@ -24,8 +49,11 @@
                 dataType: 'json',
                 url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
                 success: function (result) {
-                    $("div").html("<img src='" + result.data[1].image + "'>");
-                    $("section").html(result.data[1].name);
+                    for (var i = 0; i < result.total; i++) {
+                        $("#movie-list").append(
+                            "<img src='" + result.data[i].image + "'>"
+                        );
+                    } 
                 }
             });
         });
