@@ -78,8 +78,7 @@
                     var i = -1;
                     while (i++ <= result.total) {
                         $("#movie-list").append(
-                            "<div class='block'>" +
-                            
+                            "<div class='block'>" +      
                             "<img src=" + result.data[i].image + "><br>" +
                             "<div class='block-txt'>" + result.data[i].name + "<br>" +
                             result.data[i].price + " บาท" + "</div>" +
@@ -90,7 +89,7 @@
             });
             //-------------------------------------------------------------//
             $('#movie-list').on("click", ".block", function () {
-                console.log(5);
+                $(this).siblings().hide();
             });
         });
     </script>
