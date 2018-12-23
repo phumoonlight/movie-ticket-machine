@@ -50,7 +50,7 @@
 
     .block-txt {
         padding-left: .75vw;
-        padding-bottom: .75vw;
+        padding-bottom: .5vw;
     }
 
     .block:hover {
@@ -79,6 +79,7 @@
                     while (i++ <= result.total) {
                         $("#movie-list").append(
                             "<div class='block'>" +
+                            
                             "<img src=" + result.data[i].image + "><br>" +
                             "<div class='block-txt'>" + result.data[i].name + "<br>" +
                             result.data[i].price + " บาท" + "</div>" +
