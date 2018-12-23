@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exercise : Movie Ticket Machine</title>
     <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <style>
     body {
@@ -53,6 +54,18 @@
         padding-bottom: .5vw;
     }
 
+    .block-detail,.fas {
+        display: none;
+    }
+
+    .fas.fa-angle-left {
+        cursor: pointer;
+        position: absolute;
+        top: 9vw;
+        left: 8vw;
+        font-size: 2vw;
+    }
+
     .block:hover {
         background-color: rgb(61, 61, 61);
         color: rgb(255, 174, 0);
@@ -64,7 +77,10 @@
 <body>
     <!-- Contents -->
     <div id="title">ภาพยนตร์</div>
-    <section id="movie-list"></section>
+    <section id="movie-list">
+        <i class='fas fa-angle-left'> Back</i>
+    </section>
+    
     <!-- JS -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
@@ -79,7 +95,8 @@
                     while (i++ <= result.total) {
                         $("#movie-list").append(
                             "<div class='block'>" +      
-                            "<img src=" + result.data[i].image + "><br>" +
+                            "<img src=" + result.data[i].image + ">" +
+                            "<div class='block-detail'>"+result.data[i].shot_description+"</div>" +
                             "<div class='block-txt'>" + result.data[i].name + "<br>" +
                             result.data[i].price + " บาท" + "</div>" +
                             "</div>"
@@ -90,6 +107,13 @@
             //-------------------------------------------------------------//
             $('#movie-list').on("click", ".block", function () {
                 $(this).siblings().hide();
+                $(".block-detail,.fas").show();
+            });
+            //-------------------------------------------------------------//
+            $('.fas').click(function(){
+                console.log(2);
+                $(".block").siblings().show();
+                $(".block-detail,.fas").hide();
             });
         });
     </script>
