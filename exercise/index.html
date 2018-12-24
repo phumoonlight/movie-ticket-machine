@@ -38,7 +38,7 @@
         border-radius: 10px;
     }
 
-    .block {
+    .movie {
         width: 15vw;
         margin: .75vw;
         text-align: left;
@@ -49,13 +49,18 @@
         
     }
 
-    .block-txt {
+    .movie-txt {
         padding-left: .75vw;
         padding-bottom: .5vw;
     }
 
-    .block-detail,.fas {
+    .movie-detail,.fas {
         display: none;
+        color: rgb(75, 75, 75);
+    }
+
+    i span{
+        font-family: 'Prompt', sans-serif;
     }
 
     .fas.fa-angle-left {
@@ -66,9 +71,9 @@
         font-size: 2vw;
     }
 
-    .block:hover {
-        background-color: rgb(61, 61, 61);
-        color: rgb(255, 174, 0);
+    .movie:hover {
+        background-color: rgb(50, 50, 50);
+        color: rgb(255, 175, 0);
         transition: .30s;
         cursor: pointer;
     }
@@ -78,7 +83,7 @@
     <!-- Contents -->
     <div id="title">ภาพยนตร์</div>
     <section id="movie-list">
-        <i class='fas fa-angle-left'> Back</i>
+        <i class='fas fa-angle-left'> <span>Back</span></i>
     </section>
     
     <!-- JS -->
@@ -94,10 +99,10 @@
                     var i = -1;
                     while (i++ <= result.total) {
                         $("#movie-list").append(
-                            "<div class='block'>" +      
+                            "<div class='movie'>" +      
                             "<img src=" + result.data[i].image + ">" +
-                            "<div class='block-detail'>"+result.data[i].shot_description+"</div>" +
-                            "<div class='block-txt'>" + result.data[i].name + "<br>" +
+                            "<div class='movie-detail'>"+result.data[i].shot_description+"</div>" +
+                            "<div class='movie-txt'>" + result.data[i].name + "<br>" +
                             result.data[i].price + " บาท" + "</div>" +
                             "</div>"
                         );
@@ -105,15 +110,15 @@
                 }
             });
             //-------------------------------------------------------------//
-            $('#movie-list').on("click", ".block", function () {
+            $('#movie-list').on("click", ".movie", function () {
                 $(this).siblings().hide();
-                $(".block-detail,.fas").show();
+                $(".movie-detail,.fas").show();
             });
             //-------------------------------------------------------------//
             $('.fas').click(function(){
                 console.log(2);
-                $(".block").siblings().show();
-                $(".block-detail,.fas").hide();
+                $(".movie").siblings().show();
+                $(".movie-detail,.fas").hide();
             });
         });
     </script>
