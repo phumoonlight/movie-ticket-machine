@@ -111,12 +111,12 @@
             });
             //-------------------------------------------------------------//
             $('#movie-list').on("click", ".movie", function () {
+                
                 $(this).siblings().hide();
-                $(".movie-detail,.fas").show();
+                $(".movie-detail,.fas").show(); 
             });
             //-------------------------------------------------------------//
-            $('.fas').click(function(){
-                console.log(2);
+            $('.fas').click(function() {
                 $(".movie").siblings().show();
                 $(".movie-detail,.fas").hide();
             });
