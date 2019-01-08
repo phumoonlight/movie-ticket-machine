@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exercise : Movie Ticket Machine</title>
     <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
 </head>
 <style>
     body {
@@ -46,7 +47,7 @@
         font-size: 1vw;
         border-radius: 5px;
         transition: .30s;
-        
+
     }
 
     .movie-txt {
@@ -54,12 +55,13 @@
         padding-bottom: .5vw;
     }
 
-    .movie-detail,.fas {
+    .movie-detail,
+    .fas {
         display: none;
         color: rgb(75, 75, 75);
     }
 
-    i span{
+    i span {
         font-family: 'Prompt', sans-serif;
     }
 
@@ -85,7 +87,7 @@
     <section id="movie-list">
         <i class='fas fa-angle-left'> <span>Back</span></i>
     </section>
-    
+
     <!-- JS -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
@@ -99,26 +101,16 @@
                     var i = -1;
                     while (i++ <= result.total) {
                         $("#movie-list").append(
-                            "<div class='movie'>" +      
+                            "<div class='movie'>" +
                             "<img src=" + result.data[i].image + ">" +
-                            "<div class='movie-detail'>"+result.data[i].shot_description+"</div>" +
+                            "<div class='movie-detail'>" + result.data[i].shot_description +
+                            "</div>" +
                             "<div class='movie-txt'>" + result.data[i].name + "<br>" +
                             result.data[i].price + " บาท" + "</div>" +
                             "</div>"
                         );
                     }
                 }
-            });
-            //-------------------------------------------------------------//
-            $('#movie-list').on("click", ".movie", function () {
-                
-                $(this).siblings().hide();
-                $(".movie-detail,.fas").show(); 
-            });
-            //-------------------------------------------------------------//
-            $('.fas').click(function() {
-                $(".movie").siblings().show();
-                $(".movie-detail,.fas").hide();
             });
         });
     </script>
