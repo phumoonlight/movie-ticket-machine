@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercise : Movie Ticket Machine</title>
+    <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+</head>
+<style>
+    body {
+        font-family: 'Prompt', sans-serif;
+        margin-left: 7.5vw;
+        margin-right: 7.5vw;
+        margin-top: 0px;
+    }
+
+    #title {
+        border: solid rgb(225, 225, 225) 0.01vw;
+        padding: 1.5vw;
+        font-size: 3.5vw;
+        font-weight: bold;
+        color: rgb(255, 166, 0);
+        background: rgb(250, 250, 250);
+    }
+
+    #movie-list {
+
+        border: solid rgb(225, 225, 225) 0.01vw;
+        text-align: center;
+    }
+
+    #movie-list img {
+        padding: 0.5vw;
+        max-width: 93.5%;
+        border-radius: 10px;
+    }
+
+    .movie {
+        width: 15vw;
+        margin: .75vw;
+        text-align: left;
+        display: inline-block;
+        font-size: 1vw;
+        border-radius: 5px;
+        transition: .30s;
+
+    }
+
+    .movie-txt {
+        padding-left: .75vw;
+        padding-bottom: .5vw;
+    }
+
+    .movie-detail,
+    .fas {
+        display: none;
+        color: rgb(75, 75, 75);
+    }
+
+    i span {
+        font-family: 'Prompt', sans-serif;
+    }
+
+    .fas.fa-angle-left {
+        cursor: pointer;
+        position: absolute;
+        top: 9vw;
+        left: 8vw;
+        font-size: 2vw;
+    }
+
+    .movie:hover {
+        background-color: rgb(50, 50, 50);
+        color: rgb(255, 175, 0);
+        transition: .30s;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <!-- Contents -->
+    <div id="title">ภาพยนตร์</div>
+    <section id="movie-list">
+        <i class='fas fa-angle-left'> <span>Back</span></i>
+    </section>
+
+    <!-- JS -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //------------------------------
+            function GetParameterValues(param) {
+                var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for (var i = 0; i < url.length; i++) {
+                    var urlparam = url[i].split('=');
+                    if (urlparam[0] == param) {
+                        return urlparam[1];
+                    }
+                }
+            }
+            //-------------------------------------------------------------//
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
+                success: function (result) {
+                    var i = -1;
+                    while (i++ <= result.total) {
+                        $("#movie-list").append(
+                            "<div class='movie'>" +
+                            "<img src=" + result.data[i].image + ">" +
+                            "<div class='movie-detail'>" + result.data[i].shot_description +
+                            "</div>" +
+                            "<div class='movie-txt'>" + result.data[i].name + "<br>" +
+                            result.data[i].price + " บาท" + "</div>" +
+                            "</div>"
+                        );
+                    }
+                }
+            });
+            //-------------------------------------------------------------//
+            $('#movie-list').on("click", ".movie", function () {
+
+                $(this).siblings().hide();
+                $(".movie-detail,.fas").show();
+            });
+            //-------------------------------------------------------------//
+            $('.fas').click(function () {
+                $(".movie").siblings().show();
+                $(".movie-detail,.fas").hide();
+            });
+        });
+    </script>
+</body>
+
+</html>
