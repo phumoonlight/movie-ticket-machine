@@ -15,7 +15,7 @@
 <body>
     <!-- Contents -->
     <div id="title">ภาพยนตร์</div>
-    <section id="movie-list"></section>
+    <section id="movie-detail"></section>
 
     <!-- JS -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -38,16 +38,14 @@
                 dataType: 'json',
                 url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
                 success: function (result) {
-                        $("#title").text(result.data[param].name);
-                        $("#movie-list").append(
-                            "<div class='movie'>" +
-                            "<img src=" + result.data[param].image + ">" +
-                            "<div class='movie-detail'>" + result.data[param].shot_description +
-                            "</div>" +
-                            "<div class='movie-txt'>" + result.data[param].name + "<br>" +
-                            result.data[param].price + " บาท" + "</div>" +
-                            "</div>"
-                        );
+                    $("#title").text(result.data[param].name);
+                    $("#movie-detail").html(
+                        "<img src='"+result.data[param].image+"'>" +
+                        "<div><span>เรื่องย่อ</span><br>" +
+                        result.data[param].shot_description+ "</div>" 
+                        
+
+                    );
                 }
             });
         });
