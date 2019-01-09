@@ -42,22 +42,8 @@ body {
     padding-bottom: .5vw;
 }
 
-.movie-detail,
-.fas {
-    display: none;
-    color: rgb(75, 75, 75);
-}
-
 i span {
     font-family: 'Prompt', sans-serif;
-}
-
-.fas.fa-angle-left {
-    cursor: pointer;
-    position: absolute;
-    top: 9vw;
-    left: 8vw;
-    font-size: 2vw;
 }
 
 .movie:hover {
@@ -65,4 +51,8 @@ i span {
     color: rgb(255, 175, 0);
     transition: .30s;
     cursor: pointer;
+}
+
+a {
+    color: rgb(45, 45, 45);
 }
