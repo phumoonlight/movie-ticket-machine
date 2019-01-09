@@ -19,12 +19,36 @@ body {
     text-align: center;
 }
 
+#movie-detail {
+    border: solid rgb(225, 225, 225) 0.01vw;
+}
+
+#movie-detail img {
+    padding: 2vw;
+    width: 20vw;
+    vertical-align: top;
+}
+
+#movie-detail div {
+    display: inline-block;
+    padding: 2.5vw;
+    width: 53vw;
+    font-size: 1.5vw;
+}
+
+#movie-detail div span {
+    font-size: 2.5vw;
+    font-weight: bold;
+}
+
 #movie-list img {
     padding: 0.5vw;
     width: 15vw;
     height: 20vw;
     border-radius: 10px;
 }
+
+
 
 .movie {
     width: 16vw;
