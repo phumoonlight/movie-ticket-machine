@@ -16,7 +16,6 @@
     <!-- Contents -->
     <div id="title">ภาพยนตร์</div>
     <section id="movie-list"></section>
-<a href="moviedetail.html?id="></a>
     <!-- JS -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
@@ -33,8 +32,6 @@
                             "<a href='moviedetail.html?id="+result.data[i].id+"'>" +
                             "<div class='movie'>" +
                             "<img src=" + result.data[i].image + ">" +
-                            "<div class='movie-detail'>" + result.data[i].shot_description +
-                            "</div>" +
                             "<div class='movie-txt'>" + result.data[i].name + "<br>" +
                             result.data[i].price + " บาท" + "</div>" +
                             "</div>" +
