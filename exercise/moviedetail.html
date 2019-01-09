@@ -42,7 +42,8 @@
                     $("#movie-detail").html(
                         "<img src='"+result.data[param].image+"'>" +
                         "<div><span>เรื่องย่อ</span><br>" +
-                        result.data[param].shot_description+ "</div>" 
+                        result.data[param].shot_description+ "<br>" +
+                        "<span>ราคา</span><br>"+result.data[param].price+" บาท</div>" 
                         
 
                     );

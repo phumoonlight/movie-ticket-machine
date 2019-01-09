@@ -2,7 +2,7 @@ body {
     font-family: 'Prompt', sans-serif;
     margin-left: 7.5vw;
     margin-right: 7.5vw;
-    margin-top: 0px;
+    margin-top: 1vw;
 }
 
 #title {
@@ -10,8 +10,8 @@ body {
     padding: 1.5vw;
     font-size: 3.5vw;
     font-weight: bold;
-    color: rgb(255, 166, 0);
-    background: rgb(250, 250, 250);
+    color: rgb(255, 208, 0);
+    background: rgb(247, 247, 247);
 }
 
 #movie-list {
@@ -75,7 +75,7 @@ i span {
 
 .movie:hover {
     background-color: rgb(50, 50, 50);
-    color: rgb(255, 175, 0);
+    color: rgb(255, 225, 95);
     transition: .30s;
     cursor: pointer;
 }
