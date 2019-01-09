@@ -21,13 +21,13 @@ body {
 
 #movie-list img {
     padding: 0.5vw;
-    width: 14vw;
-    height: 19vw;
+    width: 15vw;
+    height: 20vw;
     border-radius: 10px;
 }
 
 .movie {
-    width: 15vw;
+    width: 16vw;
     margin: .75vw;
     text-align: left;
     display: inline-block;
