@@ -29,11 +29,20 @@
     
     <div id="title">ภาพยนตร์<br></div>
     <!-- <div id="menu">กำลังฉาย</div> -->
+
+    <select id="movstatus">
+        <option value="all">ALL</option>
+        <option value="now-showing">now showing</option>
+    </select>
+    <div class="output"></div>
+
     <section id="movie-list"></section>
     <!-- JS -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
         $(document).ready(function () {
+            var option = $("#movstatus option:selected").val();
+            $('.output').text(option);
             //-------------------------------------------------------------//
             $.ajax({
                 type: 'GET',
